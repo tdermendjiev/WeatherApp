@@ -1,0 +1,85 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="city"><%= city.name %></div>
+<div class="cityFilter">
+    <a href="http://localhost:8080/weather?long=27.46264&lat=42.50479">Burgas</a>
+    <a href="http://localhost:8080/weather?long=27.91473&lat=43.21405">Varna</a>
+    <a href="http://localhost:8080/weather?long=24.74529&lat=42.13541">Plovdiv</a>
+</div>
+<div class="container">
+    <div class="row forecast">
+        <% for(var i=0; i < data.length; i++) { %>
+            <div class="day">
+                <p class="name"><%= data[i].name %></p>
+                <p class="temp"><%= Math.round((data[i].minTemp + data[i].maxTemp)/2) %> &#8451</p>
+                <div class="tempWrap">
+                <p class="minTemp">Min:<%= data[i].minTemp %>&#8451</p>
+                <p class="minTemp">Max:<%= data[i].maxTemp %>&#8451</p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+
+<style>
+        body {
+            background: #F7F7F9;
+        }
+
+        .city {
+            display: block;
+            text-align: center;
+            padding: 50px;
+            font-size: 40px;
+        }
+
+        .cityFilter {           
+            text-align: center;
+        }
+
+        .cityFilter a {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .forecast {
+          margin-top: 10;
+          margin-left: auto;
+          margin-right: auto;
+         
+          padding: 10px;
+        }
+
+        .day {
+            display: inline-block;
+            width: 19.7%;
+            height: 400px;
+            background-color: #9BDAF3;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
+
+        .name {
+            color: white;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .tempWrap {
+            margin-top: 100px;
+        }
+
+        .temp {
+            margin-top: 60px;
+            color: white;
+            text-align: center;
+            font-size: 60px;
+        }
+
+        .minTemp {
+            color: white;
+        }
+    </style>

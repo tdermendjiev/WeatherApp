@@ -1,0 +1,21 @@
+
+<div id="locationLabel">Fetching location...please wait</div>
+
+<script>
+
+getLocation();
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+}
+
+function showPosition(position) {
+    window.location = "http://localhost:8080/weather?long=" + position.coords.longitude + "&lat=" + position.coords.latitude;
+}
+
+function showError(error) {
+    console.log("location fetching failed");
+}
+</script>
