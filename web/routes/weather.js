@@ -8,7 +8,6 @@ var WeatherRoute = Arrow.Router.extend({
 	method: 'GET',
 	description: 'Here is the weather :)',
 	action: function (req, answ , next) {
-		body = "asdfas";
 		var url_parts = url.parse(req.url, true);
 		var query = url_parts.query;
 		var long = query.long;
@@ -41,11 +40,8 @@ var WeatherRoute = Arrow.Router.extend({
 		  				fcObject.name = date.toString().substring(0, 10);
 		  				fcObject.minTemp = Math.round(fcItem.main.temp_min - 273.15);
 		  				fcObject.maxTemp = Math.round(fcItem.main.temp_max - 273.15);
-		  			}
-			  		
-		  				
+		  			}			
 		  	}
-		  	console.log(forecastArray);
 		    answ.render('weather', {data: forecastArray, city: city});
 		  }
 		});
